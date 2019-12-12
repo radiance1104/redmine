@@ -1,0 +1,23 @@
+services:
+  app:
+    image: redmine:4.0.5
+    container_name: redmine-app
+    restart: always
+    ports:
+      - <<YOUR HTTP PORT>>:3000
+    volumes:
+      - <<YOUR DIRECTORY PATH>>:/usr/src/redmine/files
+      - <<YOUR DIRECTORY PATH>>:/usr/src/redmine/plugins
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: <<MYSQL PASSWORD>>
+  db:
+    image: mysql:5.7
+    container_name: redmine-mysql
+    restart: always
+    volumes:
+      - <<YOUR DIRECTORY PATH>>:/var/lib/mysql
+      - <<MYSQL CONFIG DIRECTORY PATH>>:/etc/mysql/conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: <<MYSQL PASSWORD>>
+      MYSQL_DATABASE: redmine

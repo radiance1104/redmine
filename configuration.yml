@@ -1,0 +1,11 @@
+default:
+  email_delivery:
+    delivery_method: :smtp
+    smtp_settings:
+      address: <<SMTP SERVER ADDRESS>>
+      port: <<SMTP SERVER PORT>>
+      authentication: :login
+      domain: <<SMTP SERVER DOMAIN>>
+      user_name: <<SMTP USER>>
+      password: <<SMTP PASSWORD>>
+      enable_starttls_auto: false
